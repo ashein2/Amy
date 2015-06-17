@@ -1,0 +1,48 @@
+<template name= "profileSavedExercises">
+	{{ > profileBase }}
+	<head>
+		<title> {{profile.userName}} Exercises </title>
+	</head>
+	<body>
+
+	<div class = "container">
+		<div class = "row">
+			<div class= "col-md-offset-2 col-md-6">
+				<h1> Hello! {{ profile.userName}} </h1>
+					<div class="jumbotron">
+						<img src= "images/Empty.jpg" >
+						{{profile.firstName}} {{profile.lastName}}
+					</div>
+
+					<hr/>
+						<table class="table table-hover">
+							<thead>
+								<tr> 
+									<th>Amount</th> <th>Distance</th> <th>Interval</th> <!-- <th>Repitions</th> -->
+								</tr>
+							</thead>
+
+							<tbody>
+
+							{{#each getRoutines}}
+
+								<tr class="armExercise {{selectedClass}}">
+									<th> {{armName}}</th> 
+									<th>{{armSets}}</th> 
+									<th>{{armReps}}</th> 
+									<th>{{armWeight}}</th>
+									<th></th><button class="removeExercise">Remove</button>
+								</tr>
+							{{/each}}
+
+							</tbody>
+						</table>
+
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</template>
