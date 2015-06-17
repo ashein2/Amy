@@ -33,33 +33,33 @@ if(Meteor.isClient){
 		 
       },
 
-    // 'click .setsp': function(){
-    //  	var playerId = this._id;
-    // 	Session.set('selectedExer', playerId);
-    //   	// var selectedSet = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedSet, {$inc: {armSets: 1}}); 
-   	// },
+    'click .setsp': function(){
+     	var playerId = this._id;
+    	Session.set('selectedExer', playerId);
+      	var selectedSet = Session.get('selectedExer');
+      	Practices.update(selectedSet, {$inc: {amount: 1}}); 
+   	},
 
-    // 'click .repsp': function(){
-    //   var playerId = this._id;
-    //   Session.set('selectedExer', playerId);
-    //   	// var selectedReps = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedReps, {$inc: {armReps: 1}});
-    // 	},
+    'click .repsp': function(){
+      var playerId = this._id;
+      Session.set('selectedExer', playerId);
+      	var selectedReps = Session.get('selectedExer');
+      	Practices.update(selectedReps, {$inc: {distance: 25}});
+    	},
 
-    // 	'click .setsd': function(){
-    // 	var playerId = this._id;
-    //   	Session.set('selectedExer', playerId);
-    //   	// var selectedSet = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedSet, {$inc: {armSets: -1}});
-    // 	},
+    	'click .setsd': function(){
+    	var playerId = this._id;
+      	Session.set('selectedExer', playerId);
+      	var selectedSet = Session.get('selectedExer');
+      	Practices.update(selectedSet, {$inc: {amount: -1}});
+    	},
     	
-    // 	'click .repsd': function(){
-    // 	var playerId = this._id;
-    //   	Session.set('selectedExer', playerId);
-    //   	// var selectedReps = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedReps, {$inc: {armReps: -1}});
-    // 	},
+    	'click .repsd': function(){
+    	var playerId = this._id;
+      	Session.set('selectedExer', playerId);
+      	var selectedReps = Session.get('selectedExer');
+      	Practices.update(selectedReps, {$inc: {distance: -25}});
+    	},
 
       'click .addTo' :function() {
         var playerId = this._id;
