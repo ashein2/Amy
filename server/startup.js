@@ -5,7 +5,8 @@ if(Meteor.isServer){
 			Practices.insert({
 				amount: 6,
 				distance: 200,
-				interval: 245, //how to add :
+				minute: 2, //how to add :
+				second: 45,
 				// repetition: 2
 				// change to date link to insert sets
 			});

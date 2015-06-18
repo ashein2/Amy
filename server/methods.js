@@ -33,12 +33,13 @@
 
         // },
 
-        'addsetToDB': function(amount, distance, interval){
+        'addsetToDB': function(amount, distance, minute, second){
             Practices.insert({
                 time: new Date(), 
                 amount: amount, 
                 distance: distance,
-                interval: interval
+                minute: minute,
+                second: second
             });
         }
     })

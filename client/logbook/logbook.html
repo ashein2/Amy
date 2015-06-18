@@ -5,7 +5,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr> 
-				<th>Amount</th> <th>Distance</th> <th>Interval</th>
+				<th>Amount</th> <th>Distance</th> <th>Interval</th> <th> SSS</th>
 			</tr>
 		</thead>
 
@@ -15,9 +15,13 @@
 
 			<tr class="practices {{selectedClass}}">
 				<!-- <th> {{time}} </th> -->
-				<th>{{amount}}&nbsp;&nbsp;&nbsp;<button class="setsp">+</button><button class="setsd">-</button></th>
-				<th>{{distance}}&nbsp;&nbsp;&nbsp;<button class="repsp">+</button><button class="repsd">-</button></th>
-				<th>{{interval}}&nbsp;&nbsp;&nbsp;<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{amount}}&nbsp;&nbsp;&nbsp;<button class="amountp">+</button><button class="amountd">-</button></th>
+				<th>{{distance}}&nbsp;&nbsp;&nbsp;<button class="distp">+</button><button class="distd">-</button></th>
+				<th>{{minute}}&nbsp;&nbsp;&nbsp;<button class="minp">+</button><button class="mind">-</button></th>
+				<!-- how get 05 and 00?? -->
+				<th>{{second}}&nbsp;&nbsp;&nbsp;<button class="secp">+</button><button class="secd">-</button></th>
+		<!-- 		<th> <button type="button" class="btn btn-default" aria-label="Remove"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></th>
+ -->
 				
 			</tr>
 		{{/each}}
@@ -28,11 +32,19 @@
 
 	<form class="form-inline" id="addset">
 	
-		<input class="addset" type="text" name="amount" placeholder="Amount">
-	    <input class="addset" type="text" name="distance" placeholder="Distance">
-	    <input class="addset" type="text" name="interval" placeholder="Interval">
-
+		<input class="addset" type="number" name="amount" placeholder="Amount">
+	    <input class="addset" type="number" name="distance" placeholder="Distance">
+	    <input class="addset" type="number" name="minute" placeholder="Minute">
+	    <input class="addset" type="text" name="second" placeholder="Second">
   		<input type="submit" class="addset" value="Add Set">
 	</form>
 
 </template>
+
+<!-- <template name = "interval">
+	<tr>
+		<td>{{minute}}</td>
+		<td>:</td>
+   	  	<td>{{second}}</td>
+   </tr>
+</template> -->

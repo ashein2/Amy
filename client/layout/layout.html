@@ -22,9 +22,17 @@
 		      	<ul class="nav navbar-nav">
 					<li><a href="{{pathFor 'about'}}">About Us</a></li>
 					{{#if currentUser}}
-        				<li><a href="/profile/{{getUserId}}">My Profile</a></li>
+        				<!-- <li><a href="/profile/{{getUserId}}">My Profile</a></li> -->
         				<li><a href="{{pathFor 'logbook'}}">Practice Logs</a></li>
-        			{{/if}}
+        				<li><a href="{{pathFor 'listen'}}">Listen</a></li>
+
+        				{{else}}
+        				<p class="navbar-text">Please log in to see other options -------> </p>
+        				{{/if}}
+          			
+          				 
+      
+          			
 					</ul>
 			    <ul class="nav navbar-nav navbar-right">
 			            {{> loginButtons}} <!-- here -->
