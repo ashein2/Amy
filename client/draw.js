@@ -6,7 +6,12 @@ Template.draw.events({
 })
 
 function drawStuff(){
-	drawContext = drawSpace.getContext("2d");
+	var drawContext = drawSpace.getContext("2d");
+	var my_gradient = drawContext.createLinearGradient(0,0,600,0);
+	my_gradient.addColorStop(0, "green");
+	my_gradient.addColorStop(1, "purple");
+	drawContext.fillStyle = my_gradient;
+	
 	drawContext.fillStyle = "yellow";
 	drawContext.fillRect(0,0,600,300);
 	drawContext.fillStyle = "blue";
