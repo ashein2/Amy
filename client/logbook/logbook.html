@@ -1,11 +1,17 @@
 <template name="logbook">
 
-	<h1> Log Book</h1>
+	<h1>Log Book</h1>
 	<hr/>
 	<table class="table table-hover">
 		<thead>
 			<tr> 
-				<th>Amount</th> <th>Distance</th> <th>Interval</th> <th> </th>
+				<th>Amount</th> 
+				 <th>Distance<button id="nameUp" class="btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+					</button>
+					<button id="nameDown" class="btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+					</button></th> <th>Interval</th> <th> </th> <th> </th>
 			</tr>
 		</thead>
 
@@ -21,8 +27,11 @@
 				<th>{{minute}}&nbsp;&nbsp;&nbsp;<button class="minp">+</button><button class="mind">-</button></th>
 				<!-- how get 05 and 00?? -->
 				<th>{{second}}&nbsp;&nbsp;&nbsp;<button class="secp">+</button><button class="secd">-</button></th>
-		<!-- 		<th> <button type="button" class="btn btn-default" aria-label="Remove"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></th>
- -->
+				<td> 
+				<button class="remove">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+				</td>
 				
 			</tr>
 		{{/each}}

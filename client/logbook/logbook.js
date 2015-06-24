@@ -6,7 +6,7 @@ if(Meteor.isClient){
 	Template.logbook.helpers({
 
 		'practices': function(){
-			return Practices.find({}, {sort: {amount: -1}}); //time later
+			return Practices.find({}, {sort: Session.get('sortSets')}); //time later
 		},
     	'selectedClass': function (){
       		var playerId = this._id;
@@ -35,6 +35,13 @@ if(Meteor.isClient){
       var second = event.target.second.value;
 			Meteor.call('addsetToDB', parseInt(amount) , parseInt(distance) , parseInt(minute) , parseInt(second));
 		 
+      },
+      'click #nameUp':function(){
+        Session.set('sortSets', {distance: 1});      
+      },
+
+      'click #nameDown':function(){
+        Session.set('sortSets', {distance: -1});
       },
 
     'click .amountp': function(){
@@ -98,12 +105,12 @@ if(Meteor.isClient){
         console.log("called");
       },
 
-      'click .btn btn-default': function(){
-      var playerId = this._id;
-      Session.set('selectedExer', playerId);
-        var selectedSet = Session.get('selectedExer');
-        Practices.update($selectedSet.remove()); 
-    }
-	});
+       'click .remove': function(){
+        var playerId = this._id;
+        Session.set('selectedInfo',playerId);
+        var selectedInfo = Session.get('selectedInfo');
+        Practices.remove(selectedInfo);
+      }
+    });
 
 }
