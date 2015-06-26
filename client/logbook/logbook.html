@@ -2,6 +2,17 @@
 
 	<h1>Log Book</h1>
 	<hr/>
+	<div id="filter-bar"> </div>
+
+<table id="tbl" data-toggle="table" data-height="299" data-url="data1.json" data-toolbar="#filter-bar" data-show-toggle="true" data-show-columns="true" data-show-filter="true">
+    <thead>
+    <tr>
+        <th data-field="id" data-align="right" data-sortable="true">Item ID</th>
+        <th data-field="name" data-align="center" data-sortable="true">Item Name</th>
+        <th data-field="price" data-align="" data-sortable="true">Item Price</th>
+    </tr>
+    </thead>
+</table>
 	<table class="table table-hover">
 		<thead>
 			<tr> 
@@ -49,12 +60,7 @@
   		<input type="submit" class="addset" value="Add Set">
 	</form>
 
+
+
 </template>
 
-<!-- <template name = "interval">
-	<tr>
-		<td>{{minute}}</td>
-		<td>:</td>
-   	  	<td>{{second}}</td>
-   </tr>
-</template> -->

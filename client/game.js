@@ -2,10 +2,10 @@ function FireflyNet(x,y,r,c) {
 	this.x=x; this.y=y; this.r=r; this.c=c;
 }
 
-FireflyNet.prototype.caught = function(f) {
-	var d = distFromOrigin(f.x-this.x,f.y-this.y);
-	return(d<(f.r+this.r));
-}
+// FireflyNet.prototype.caught = function(f) {
+// 	var d = distFromOrigin(f.x-this.x,f.y-this.y);
+// 	return(d<(f.r+this.r));
+// }
 
 function distFromOrigin(x,y) { return Math.sqrt(x*x + y*y);}
 
@@ -46,9 +46,9 @@ FireflyModel.prototype.update = function(dt){
 	_.each(this.fireflyList,
 		   function(f){
 			   f.update(dt);
-			   if (theNet.caught(f)) {
-				   f.alive = false;
-			   }
+			   // if (theNet.caught(f)) {
+				  //  f.alive = false;
+			   // }
 		   
 		   }
 	   );
@@ -59,7 +59,7 @@ FireflyModel.prototype.update = function(dt){
 theModel = new FireflyModel();  // we just create the model!
 theModel.addFirefly(f1);
 theModel.addFirefly(f2);
-for(var i =0; i<100; i++){
+for(var i =0; i<500; i++){
 	var myvx = Math.random()*10-5;
 	var myvy = (Math.random()-0.5)*10;
 	var c = "blue";
