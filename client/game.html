@@ -1,8 +1,18 @@
 <template name = "game">
-<h1> Look at all the bubbles! </h1>
+<h1> Pop all the bubbles! </h1>
+	<h3>Popped Bubbles: {{fliesfunc}} / 500</h3>
+	<h4>
+		{{#if isComplete}}
+		Yay! You got them all!
+		{{else}}
+		Bubbles remaining: {{remaining}}
+		{{/if}}
+	</h4>
 <button id ="startgame">Start</button>
 <br>
 <canvas id = "gameboard" width = "500" height = "500">
 	get a better browser
 </canvas>
 </template>
+
+

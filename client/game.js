@@ -2,10 +2,18 @@ function FireflyNet(x,y,r,c) {
 	this.x=x; this.y=y; this.r=r; this.c=c;
 }
 
-// FireflyNet.prototype.caught = function(f) {
-// 	var d = distFromOrigin(f.x-this.x,f.y-this.y);
-// 	return(d<(f.r+this.r));
-// }
+FireflyNet.prototype.caught = function(f) {
+	var d = distFromOrigin(f.x-this.x,f.y-this.y);
+	return(d<(f.r+this.r));
+}
+
+Session.set("dead", 0);
+
+Template.game.helpers({
+	fliesfunc: function(){return Session.get("dead")},
+	isComplete: function(){return (Session.get("dead")==500)},
+	remaining: function(){return (500-Session.get("dead"))}
+});
 
 function distFromOrigin(x,y) { return Math.sqrt(x*x + y*y);}
 
@@ -27,13 +35,16 @@ Firefly.prototype.update = function(dt){
 
 }
 
-f1 = new Firefly(50,50,5,"blue",10,-5);
-f2 = new Firefly(50,50,10,"blue",45,15);
+
+
+
+var f1 = new Firefly(50,50,5,"blue",10,-5);
+var f2 = new Firefly(50,50,10,"blue",45,15);
 
 function FireflyModel(){
 	this.w=100;
 	this.h=100;
-	this.net = new FireflyNet(10,10,10,"blue");
+	this.net = new FireflyNet(10,10,10,"purple");
 	this.fireflyList = [];
 	this.bgcolor="#eee";
 }
@@ -46,9 +57,10 @@ FireflyModel.prototype.update = function(dt){
 	_.each(this.fireflyList,
 		   function(f){
 			   f.update(dt);
-			   // if (theNet.caught(f)) {
-				  //  f.alive = false;
-			   // }
+			   if (theNet.caught(f)) {
+				   f.alive = false;
+				   Session.set("dead", Session.get("dead")+1);
+			   }
 		   
 		   }
 	   );
@@ -59,7 +71,7 @@ FireflyModel.prototype.update = function(dt){
 theModel = new FireflyModel();  // we just create the model!
 theModel.addFirefly(f1);
 theModel.addFirefly(f2);
-for(var i =0; i<500; i++){
+for(var i =0; i<498; i++){
 	var myvx = Math.random()*10-5;
 	var myvy = (Math.random()-0.5)*10;
 	var c = "blue";
@@ -141,7 +153,7 @@ Template.game.events({
 		
 	}
 })
-Template.firefly.rendered = function(){
+Template.game.rendered = function(){
 document.getElementById("gameboard").addEventListener('mousemove', 
   function(e){
    if (running) {
@@ -152,3 +164,6 @@ document.getElementById("gameboard").addEventListener('mousemove',
   }
 );
 }
+
+
+
