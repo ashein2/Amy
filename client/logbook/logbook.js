@@ -31,9 +31,10 @@ if(Meteor.isClient){
 
 			var amount = event.target.amount.value;
 			var distance = event.target.distance.value;
+      var stroke = event.target.stroke.value;
 			var minute = event.target.minute.value;
       var second = event.target.second.value;
-			Meteor.call('addsetToDB', parseInt(amount) , parseInt(distance) , parseInt(minute) , parseInt(second));
+			Meteor.call('addsetToDB', parseInt(amount) , parseInt(distance) , stroke, parseInt(minute) , parseInt(second));
 		 
       },
       'click #nameUp':function(){
