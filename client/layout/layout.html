@@ -22,11 +22,11 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
 					<li><a href="{{pathFor 'about'}}">About Us</a></li>
-					<li><a href="{{pathFor 'game'}}">Bubbles!</a></li>
-					<li><a href="{{pathFor 'leaderboard'}}">Leaderboard</a></li>
 
 					{{#if currentUser}}
         				<!-- <li><a href="/profile/{{getUserId}}">My Profile</a></li> -->
+        				<li><a href="{{pathFor 'game'}}">Bubbles!</a></li>
+					<li><a href="{{pathFor 'leaderboard'}}">Leaderboard</a></li>
         				<li><a href="{{pathFor 'logbook'}}">Practice Logs</a></li>
         				<li><a href="{{pathFor 'listen'}}">Enter a Practice</a></li>
         				<li><a href="{{pathFor 'draw'}}">Draw</a></li>

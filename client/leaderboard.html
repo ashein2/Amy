@@ -1,0 +1,29 @@
+<template name = "leaderboard">
+<h1> Leaderboard </h1>
+		<div class="col-xs-9">
+			<table class="table table-striped">
+				<tr>
+						<th>Name</th>
+						<th>Score</th>
+					</tr>
+				<tbody>
+					{{#each player}}
+					
+					  {{> scoreTable}}
+					{{/each}}	
+				</tbody>
+			</table>
+		</div>
+
+		
+</template>
+
+
+<template name="scoreTable">
+	<tr>
+		<td>{{name}}</td>
+		<td>{{score}}</td>
+
+	</tr>
+</template>
+

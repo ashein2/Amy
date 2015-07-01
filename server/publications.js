@@ -1,5 +1,6 @@
 
 Meteor.publish('practices', function(){return Practices.find();});
+Meteor.publish('players', function(){return Players.find();});
 Meteor.publish('praticeLogs', function () { return Meteor.users.find({ _id: this.userId }, { fields: { savedExercises: 1 } });});
 
 Meteor.users.allow({
